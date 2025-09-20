@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600;700;800&display=swap');
+@import "tailwindcss";
+
+:root {
+	--bg-main: #F9f3ee; /* main background */
+	--accent-dark: #273440; /* buttons, nav */
+	--muted-1: #C1bab8; /* secondary backgrounds */
+	--muted-2: #D8d1cb; /* panels */
+	--accent-strong: #1e2b38; /* bold texts, sign-up */
+	--accent-rose: #f06292;
+}
+
+html, body, #root {
+	height: 100%;
+}
+
+body {
+	font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	background-color: var(--bg-main);
+	color: #273440;
+}
+
+.font-script { font-family: 'Playfair Display', serif; }
+.bg-cream { background-color: var(--bg-main); }
+
+/* subtle floating animation used in hero */
+@keyframes floaty {
+	0% { transform: translateY(0); }
+	50% { transform: translateY(-12px); }
+	100% { transform: translateY(0); }
+}
+
+.animate-float { animation: floaty 4s ease-in-out infinite; }
+
+/* responsive container tweak for hero layout */
+.hero-container { max-width: 1200px; margin: 0 auto; }
+
+/* Display gradient used for large headings */
+.display-gradient {
+	background: linear-gradient(90deg, #6b2b6d 0%, #d16b5b 35%, #f3b04b 70%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	background-size: 200% 200%;
+	animation: gradientShift 6s ease infinite;
+}
+
+@keyframes gradientShift {
+	0% { background-position: 0% 50%; }
+	50% { background-position: 100% 50%; }
+	100% { background-position: 0% 50%; }
+}
+
+/* Hero title sizing */
+.hero-title { font-size: 3.2rem; line-height: 1; }
+@media (min-width: 768px) { .hero-title { font-size: 4.5rem; } }
+@media (min-width: 1024px) { .hero-title { font-size: 5.2rem; } }
+
+/* Decorative stroke circle behind heading */
+.hero-decor { position: absolute; width: 420px; height: 420px; border-radius: 50%; border: 2px solid rgba(200,180,170,0.18); right: 40%; top: 30px; transform: translateX(40%); pointer-events: none; }
+
+/* Pedestal / card base used in NFT cards */
+.pedestal-base { background: var(--muted-2); border-radius: 999px 999px 28px 28px; padding: 10px 18px; box-shadow: 0 8px 18px rgba(20,18,16,0.06); }
+.price-pill { background: #fff; border-radius: 999px; padding: 10px 18px; font-weight: 700; color: var(--accent-strong); box-shadow: 0 6px 16px rgba(10,10,10,0.06); }
+
+/* Marbled start button style */
+.btn-marbled { 
+	background: radial-gradient(circle at 20% 20%, #0f2430, #10232b 20%, #0b1a22 50%); 
+	color: #f7e9d8; 
+	border-radius: 999px; 
+	padding: 12px 26px; 
+	box-shadow: 0 6px 18px rgba(16,20,24,0.35);
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.btn-marbled::after {
+	content: "▶";
+	font-size: 0.75rem;
+	opacity: 0.8;
+}
+
+/* small watermark vertical text on right */
+.watermark-vertical { writing-mode: vertical-rl; transform: rotate(180deg); font-size: 3rem; opacity: 0.06; font-weight:700; color: var(--accent-strong); }
+
+/* footer nav strip */
+.bottom-strip { background: linear-gradient(180deg, rgba(0,0,0,0.03), rgba(255,255,255,0)); border-top: 1px solid rgba(0,0,0,0.06); }
+
+/* Nav link subtle underline */
+.nav-link { position: relative; padding-bottom: 4px; }
+.nav-link:after { content: ""; position: absolute; left:0; bottom:0; height:2px; width:0; background: var(--accent-dark); transition: width .3s ease; }
+.nav-link:hover:after { width:100%; }
+
+/* Nav subtle shadow line */
+.nav-shadow { position: relative; }
+.nav-shadow:after { content: ""; position: absolute; left:0; right:0; bottom:-1px; height:1px; background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0) 100%); }
+
+/* Barcode strip and numbers */
+.barcode-container { 
+	display: block; 
+	background: #fff; 
+	border-radius: 16px; 
+	padding: 12px 16px; 
+	box-shadow: 0 8px 25px rgba(20,18,16,0.12), 0 2px 8px rgba(0,0,0,0.08); 
+	border: 1px solid rgba(0,0,0,0.08); 
+	backdrop-filter: blur(8px);
+}
+.barcode-image { 
+	width: 100%; 
+	height: auto; 
+	display: block; 
+	object-fit: contain; 
+	margin-bottom: 6px;
+}
+.barcode-numbers { 
+	font-family: 'Inter', monospace; 
+	font-size: 0.75rem; 
+	font-weight: 600;
+	letter-spacing: 2px; 
+	color: #1f2937; 
+	text-align: center; 
+	line-height: 1.2;
+}
+.barcode-numbers .group { 
+	margin: 0 3px; 
+	display: inline-block;
+}
