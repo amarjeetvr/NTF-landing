@@ -11,6 +11,10 @@ A modern, responsive NFT landing page built with React, Vite, and Tailwind CSS. 
 - **Component-Based**: Modular React components for easy maintenance
 - **Fast Development**: Powered by Vite for lightning-fast hot reload
 
+live -url
+
+https://nft-landing-fjvvdxg8l-amajeet-vermas-projects.vercel.app/
+
 ## 📁 Project Structure
 
 ```
